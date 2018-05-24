@@ -27,7 +27,7 @@ class Apply extends TerraformBaseTask {
         }
 
         if (plan) {
-            commandLine.addToEnd(plan.name)
+            commandLine.addToEnd(plan.absolutePath)
         }
 
         executor.executeExecSpec(this, { ExecSpec e ->

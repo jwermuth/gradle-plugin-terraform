@@ -31,7 +31,7 @@ class Plan extends TerraformBaseTask implements TerraformVariables
         commandLine.addToEnd('terraform', 'plan')
         addVariablesToEnd(commandLine)
         if (out) {
-            commandLine.addToEnd("-out=${out.name}")
+            commandLine.addToEnd("-out=${out.absolutePath}")
         }
         OutputStream echoOutputHereToo = new EchoOutputStream(new ByteArrayOutputStream(), System.out)
         if (outAsText) {

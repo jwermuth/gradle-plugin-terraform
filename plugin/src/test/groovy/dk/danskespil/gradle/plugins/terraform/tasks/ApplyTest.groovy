@@ -52,7 +52,8 @@ class ApplyTest extends BaseSpecification {
         def build = buildWithTasks(':cut')
 
         then:
-        build.output.contains('terraform apply plan.bin')
+        build.output.contains('terraform apply')
+        build.output.contains('/plan.bin')
     }
 
     def "When calling custom terraform apply task, you can configure auto approval"() {
@@ -92,7 +93,9 @@ class ApplyTest extends BaseSpecification {
         def build = buildWithTasks(':cut')
 
         then:
-        build.output.contains('terraform apply -auto-approve plan.bin')
+        build.output.contains('terraform apply -auto-approve')
+        build.output.contains('/plan.bin')
+
     }
 
 }
